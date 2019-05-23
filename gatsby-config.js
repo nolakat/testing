@@ -6,4 +6,14 @@
 
 module.exports = {
   /* Your site config here */
+
+  plugins: [
+    'gatsby-plugin-emotion',
+    {
+      resolve: 'gatsby-plugin-layout',
+      options: {
+          component: require.resolve(`./src/layouts/mainlayout.js`)
+      }
+    }
+  ]
 }
