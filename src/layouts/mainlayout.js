@@ -50,7 +50,6 @@ const MainLayout = ({children}) =>{
                 <TestCursor location={window.location.href}/>
                 <NewHeader/ >
                 {children}
-
         </>
     )
 

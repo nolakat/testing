@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from "@emotion/styled";
-import { Link } from 'gatsby';
+import TransitionLink from 'gatsby-plugin-transition-link'
+
 
 const header = styled.div`
 
@@ -21,8 +22,8 @@ const NewHeader = () => {
         <>
 
             <header>
-                <Link to="/page1" > HeaderLink 1 </Link>
-                <Link to="/page2" > HeaderLink 2 </Link>
+                <TransitionLink to="/page1" > Page One </TransitionLink>
+                <TransitionLink to="/page2" > Page Two </TransitionLink>
             </header>
 
         </>

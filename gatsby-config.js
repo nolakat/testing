@@ -10,10 +10,10 @@ module.exports = {
   plugins: [
     'gatsby-plugin-emotion',
     {
-      resolve: 'gatsby-plugin-layout',
+      resolve: "gatsby-plugin-transition-link",
       options: {
-          component: require.resolve(`./src/layouts/mainlayout.js`)
-      }
-    }
+          layout: require.resolve(`./src/layouts/mainlayout.js`)
+        }
+   }
   ]
 }
