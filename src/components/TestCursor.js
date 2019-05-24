@@ -4,28 +4,38 @@ import { TweenMax } from "gsap/TweenMax";
 import useMouseMove from '../hooks/useMouseMove';
 import onMouseOver from '../hooks/onMouseOver';
 
+
 const TestCursor = () =>{
-  
+
     var outerCursor = useState(null);
     var outerTween = useState(null);
-    const outerCursorSize = 16;
+    let outerCursorSize = 20;
 
 
     var innerCursor = useState(null);
     var innerTween = useState(null);
+    var increaseCursor = useState(null);
     const innerCursorSize = 10;
-  
+
 
     const [posX, posY] = useMouseMove();
     const hoverStatus = onMouseOver();
+
+
 
     useEffect(() => {
 
         outerTween = TweenMax
         .to(outerCursor, .25, {x: posX - (outerCursorSize / 2), y: posY - (outerCursorSize / 2)});
-
+        if(hoverStatus){
+        TweenMax
+        .to(outerCursor, 1, {scale: 2} );
+        } else {
+        TweenMax
+        .to(outerCursor, 1, {scale: 1} );
+        }
         innerTween = TweenMax
-        .to(innerCursor, 0, {x: posX - (innerCursorSize / 2), y: posY - (innerCursorSize / 2)});      
+        .to(innerCursor, 0, {x: posX - (innerCursorSize / 2), y: posY - (innerCursorSize / 2)});
 
     });
 
@@ -43,7 +53,7 @@ const TestCursor = () =>{
                     position: absolute;
                     border-radius: 100%;
                     pointer-events: none;
-            
+
                 `}/>
 
                 <div
@@ -52,7 +62,7 @@ const TestCursor = () =>{
                 css={css`
                     width: ${outerCursorSize}px;
                     height: ${outerCursorSize}px;
-                    background: blue;
+                    background: ${hoverStatus ? 'blue' : 'red' };
                     opacity: .5;
                     position: absolute;
                     display: block;

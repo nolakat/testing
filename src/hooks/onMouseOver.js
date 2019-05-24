@@ -1,61 +1,43 @@
 import { useState, useEffect } from 'react';
-import useEventListener from '@use-it/event-listener';
-import ReactDOM from "react-dom";
 
-const useMouseOver = () => {
+const onMouseOver = () => {
 
-  const [mouseStatus, setMouse] = useState('red');
-  var links = useState(null);
+  const [isHovering, setMouse] = useState(false);
+  var linksNodeList = useState(null);
 
   useEffect(() => {
-
-    links = document.getElementsByTagName('a');
-    testing();
+    linksNodeList = document.getElementsByTagName('a');
+    _updateHoverState();
 
   }, []);
-  
-  const handler = (mouseStatus) => {
-    setMouse('blue');
+
+  const _Enterhandler = () => {
+    setMouse(true);
   };
 
+  const _Exithandler = () => {
+    setMouse(false);
+  };
 
-function testing(){
+  const _updateHoverState = () => {
 
+  const linkArray = Array.prototype.slice.call(linksNodeList);
 
-const divyArray = Array.prototype.slice.call(links);
+  linkArray.map((value, index) => {
 
-  divyArray.map((value, index) => {
-    console.log( value);
-    value.addEventListener('mousemove', handler);
+    value.addEventListener('mouseenter', _Enterhandler);
+    value.addEventListener('mouseleave', _Exithandler);
+
     return () => {
-      value.removeEventListener('mousemove', handler);
+
+      value.removeEventListener('mouseenter', _Enterhandler);
+      value.removeEventListener('mouseleave', _Exithandler);
+
     };
-    
   });
 }
 
-  return mouseStatus;
+  return isHovering;
 };
 
-
- export default useMouseOver;
-
-
-
-//  const useMouseOver = () => {
-//   const [click, setClick] = useState('false');
-
-//   useEventListener('click', (e) => {
-
-
-
-//     setClick('true');
-
-//     console.log('clicked!', e);
-//     console.log(click);
-
-    
-//   });
-
-//   return click;
-// };
+ export default onMouseOver;
