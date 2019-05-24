@@ -16,7 +16,7 @@ const MainLayout = ({children}) =>{
                     padding: 0px;
                     height: 100vh;
                     width: 100vw;
-                    cursor: none;
+                    // cursor: none;
                 }
 
                 main{
@@ -24,12 +24,12 @@ const MainLayout = ({children}) =>{
                 }
 
                 a{
-                    cursor: none;
+                    // cursor: none;
                     border: 1px solid orange;
                 }
 
                 a:hover, a:active, a:focus{
-                    cursor: none;
+                    // cursor: none;
                 }
 
                 header{

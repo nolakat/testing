@@ -4,16 +4,15 @@ var linksNodeList = document.getElementsByTagName('a');
 
 const onMouseOver = (props) => {
   const [isHovering, setMouse] = useState(false);
+  const [allLinks, setallLinks] = useState(linksNodeList);
   let linkArray = Array.prototype.slice.call(linksNodeList);
 
 
   useEffect(() => {
 
-    console.log('use effect running');
     _getAllLinks();
 
     return () => {
-      console.log('will unmount');
       setMouse(false);
 
       linkArray.map((value, index) => {
@@ -33,11 +32,7 @@ const onMouseOver = (props) => {
 
   const _getAllLinks = () =>{
 
-    // var linksNodeList = document.getElementsByTagName('a');
-    // console.log(linksNodeList);
-
     linkArray = Array.prototype.slice.call(linksNodeList);
-    console.log(linkArray);
     _updateHoverState();
 
   }

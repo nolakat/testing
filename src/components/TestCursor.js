@@ -19,7 +19,8 @@ const TestCursor = (props) =>{
 
     const [posX, posY] = useMouseMove();
     const hoverStatus = onMouseOver(location);
-
+    // const [posX, posY] = [0, 0]
+   
 
 
 
@@ -70,7 +71,14 @@ const TestCursor = (props) =>{
                     pointer-events: none;
                 `} />
 
-            <pre>The mouse position is ({posX}, {posY}). <br />
+            <pre css={css`
+            border: 1px solid #ccc;
+            width: fit-content;
+            padding: 20px;
+            position: absolute;
+            bottom: 0px;
+            left: 20px;
+            `}>The mouse position is ({posX}, {posY}). <br />
             Link Hover Status: {JSON.stringify({hoverStatus})}. <br/>
             Location: {props.location}</pre>
         </>
