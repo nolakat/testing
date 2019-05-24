@@ -7,7 +7,7 @@ const useMouseMove = () => {
 
     useEventListener('mousemove', ({ clientX, clientY }) => {
 
-      setCoords([clientX, clientY]);
+      setCoords([clientX, clientY-15]);
 
     });
 

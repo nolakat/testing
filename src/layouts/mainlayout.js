@@ -3,7 +3,9 @@ import {Global, css} from '@emotion/core';
 import TestCursor from '../components/TestCursor';
 import NewHeader from '../components/NewHeader';
 
+
 const MainLayout = ({children}) =>{
+
 
     return(
         <>
@@ -23,15 +25,29 @@ const MainLayout = ({children}) =>{
 
                 a{
                     cursor: none;
+                    border: 1px solid orange;
                 }
 
                 a:hover, a:active, a:focus{
                     cursor: none;
                 }
+
+                header{
+
+                    padding: 1rem 0;
+                    display: flex;
+                    justify-content: center;
+                    border: 1px solid red;
+                
+                    a{
+                        margin: 0px 20px;
+                        border: 2px solid pink;
+                        padding: 15px;
+                    }
+                }
             `} />
 
-              
-                <TestCursor />
+                <TestCursor location={window.location.href}/>
                 <NewHeader/ >
                 {children}
 

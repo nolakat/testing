@@ -5,9 +5,9 @@ export default () => {
     return(
 
             <>
-            <h2>Page Two</h2>
-            <Link to="/page1/" >PageLink One</Link><br />
-            <Link to="/page2/" >PageLink Two</Link>
+                <h2>Page Two</h2>
+                <Link to="/page1/" >PageTwoLink</Link><br />
+                <Link to="/page1/" >PageTwoLink</Link><br />
             </>
 
     )

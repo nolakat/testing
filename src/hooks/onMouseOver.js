@@ -1,27 +1,27 @@
 import { useState, useEffect } from 'react';
 
-const onMouseOver = () => {
+var linksNodeList = document.getElementsByTagName('a');
 
+const onMouseOver = (props) => {
   const [isHovering, setMouse] = useState(false);
-  var linksNodeList = document.getElementsByTagName('a');
-  var linkArray = {}; 
+  let linkArray = Array.prototype.slice.call(linksNodeList);
+
 
   useEffect(() => {
-    console.log(linksNodeList);
 
-    linkArray = Array.prototype.slice.call(linksNodeList);
-    _updateHoverState();
-    
+    console.log('use effect running');
+    _getAllLinks();
+
     return () => {
       console.log('will unmount');
-      // linksNodeList= setList(null);
+      setMouse(false);
+
       linkArray.map((value, index) => {
           value.removeEventListener('mouseenter', _Enterhandler);
           value.removeEventListener('mouseleave', _Exithandler);
       });
     }
-
-  }, []);
+  }, [props]);
 
   const _Enterhandler = () => {
     setMouse(true);
@@ -31,16 +31,27 @@ const onMouseOver = () => {
     setMouse(false);
   };
 
+  const _getAllLinks = () =>{
+
+    // var linksNodeList = document.getElementsByTagName('a');
+    // console.log(linksNodeList);
+
+    linkArray = Array.prototype.slice.call(linksNodeList);
+    console.log(linkArray);
+    _updateHoverState();
+
+  }
+
   const _updateHoverState = () => {
-  console.log('component mounted');
    
   linkArray.map((value, index) => {
-    console.log('link array', value);
 
     value.addEventListener('mouseenter', _Enterhandler);
     value.addEventListener('mouseleave', _Exithandler);
 
   });
+
+  return;
 
 }
 
