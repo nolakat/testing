@@ -21,6 +21,10 @@ const MainLayout = ({children}) =>{
                     height: 100vh;
                 }
 
+                a{
+                    cursor: none;
+                }
+
                 a:hover, a:active, a:focus{
                     cursor: none;
                 }
@@ -29,9 +33,8 @@ const MainLayout = ({children}) =>{
               
                 <TestCursor />
                 <NewHeader/ >
-                    {children}
+                {children}
 
-               
         </>
     )
 

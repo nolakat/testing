@@ -3,11 +3,23 @@ import { useState, useEffect } from 'react';
 const onMouseOver = () => {
 
   const [isHovering, setMouse] = useState(false);
-  var linksNodeList = useState(null);
+  var linksNodeList = document.getElementsByTagName('a');
+  var linkArray = {}; 
 
   useEffect(() => {
-    linksNodeList = document.getElementsByTagName('a');
+    console.log(linksNodeList);
+
+    linkArray = Array.prototype.slice.call(linksNodeList);
     _updateHoverState();
+    
+    return () => {
+      console.log('will unmount');
+      // linksNodeList= setList(null);
+      linkArray.map((value, index) => {
+          value.removeEventListener('mouseenter', _Enterhandler);
+          value.removeEventListener('mouseleave', _Exithandler);
+      });
+    }
 
   }, []);
 
@@ -20,21 +32,16 @@ const onMouseOver = () => {
   };
 
   const _updateHoverState = () => {
-
-  const linkArray = Array.prototype.slice.call(linksNodeList);
-
+  console.log('component mounted');
+   
   linkArray.map((value, index) => {
+    console.log('link array', value);
 
     value.addEventListener('mouseenter', _Enterhandler);
     value.addEventListener('mouseleave', _Exithandler);
 
-    return () => {
-
-      value.removeEventListener('mouseenter', _Enterhandler);
-      value.removeEventListener('mouseleave', _Exithandler);
-
-    };
   });
+
 }
 
   return isHovering;

@@ -1,14 +1,12 @@
 import React from "react"
-import MainLayout from '../layouts/mainlayout';
-import NewLink from '../components/NewLink';
-
+import { Link } from 'gatsby';
 
 export default () => {
     return(
   
             <>
             <h2>Page One</h2>
-            <NewLink to="/page2/" label="Page Two" />
+            <Link to="/page2/">PageLink One </Link>
             </>
 
   

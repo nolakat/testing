@@ -71,7 +71,7 @@ const TestCursor = () =>{
                 `} />
 
           The mouse position is ({posX}, {posY}). <br />
-          The hover status is {hoverStatus}.
+          <pre>Link Hover Status: {JSON.stringify({hoverStatus})}</pre>
         </>
       );
 }

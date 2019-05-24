@@ -9,9 +9,7 @@ const MainNav = styled.div`
     justify-content: center;
     border: 1px solid red;
 
-
     a{
-
         margin: 0px 20px;
     }
 `;
@@ -23,8 +21,8 @@ const NewHeader = () => {
         <>
 
             <MainNav>
-                <Link to="/page1" > Page 1 </Link>
-                <Link to="/page2" > Page 2 </Link>
+                <Link to="/page1" > HeaderLink 1 </Link>
+                <Link to="/page2" > HeaderLink 2 </Link>
             </MainNav>
 
         </>
