@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from "@emotion/styled";
 import TransitionLink from 'gatsby-plugin-transition-link'
+import { TweenLite } from 'gsap';
 
 
 const header = styled.div`
@@ -16,14 +17,17 @@ const header = styled.div`
 `;
 
 const Header = () => {
+  
+
 
     const interestingExitAnimation =(exit, node) => {
         console.log('triggered interestingExitAnimation()');
         console.log({exit});
         console.log({node});
+        TweenLite.to(".tl-wrapper-status--exiting", 1, {opacity: .5});
+
       }
     
-
     return(
         <>
 
@@ -32,11 +36,12 @@ const Header = () => {
                  to="/page1"
                  exit={{
                     trigger: ({ exit, node }) => interestingExitAnimation(exit, node),
-                    length: 1
+                    length: 1,
+                    delay: 1.5
                   }}
-                 entry={{
-                   
-                 }}
+                  entry={{
+              
+                  }}
                  > Page One </TransitionLink>
 
                 <TransitionLink to="/page2" > Page Two </TransitionLink>

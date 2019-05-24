@@ -8,7 +8,7 @@ export default () => {
 
             <>
                 <h2>Page One</h2>
-                <Link to="/page2/">PageOne Link</Link>
+                <Link to="/page2/">Go To Page Two</Link>
             </>
 
     )
