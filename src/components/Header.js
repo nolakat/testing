@@ -17,6 +17,13 @@ const header = styled.div`
 
 const Header = () => {
 
+    const interestingExitAnimation =(exit, node) => {
+        console.log('triggered interestingExitAnimation()');
+        console.log({exit});
+        console.log({node});
+      }
+    
+
     return(
         <>
 
@@ -24,10 +31,11 @@ const Header = () => {
                 <TransitionLink
                  to="/page1"
                  exit={{
-
-                 }}
+                    trigger: ({ exit, node }) => interestingExitAnimation(exit, node),
+                    length: 1
+                  }}
                  entry={{
-                     delay: 1
+                   
                  }}
                  > Page One </TransitionLink>
 

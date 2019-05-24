@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 
 const onMouseOver = (props) => {
   var linksNodeList = document.getElementsByTagName('a');
-
   const [isHovering, setMouse] = useState(false);
   const [allLinks, setallLinks] = useState(linksNodeList);
   let linkArray = Array.prototype.slice.call(linksNodeList);

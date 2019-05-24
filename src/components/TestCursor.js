@@ -19,6 +19,7 @@ const TestCursor = (props) =>{
 
     const [posX, posY] = useMouseMove();
     const hoverStatus = onMouseOver(location);
+    // const hoverStatus = false;
     // const [posX, posY] = [0, 0]
    
 
