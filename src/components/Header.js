@@ -15,14 +15,22 @@ const header = styled.div`
     }
 `;
 
-const NewHeader = () => {
-
+const Header = () => {
 
     return(
         <>
 
             <header>
-                <TransitionLink to="/page1" > Page One </TransitionLink>
+                <TransitionLink
+                 to="/page1"
+                 exit={{
+
+                 }}
+                 entry={{
+                     delay: 1
+                 }}
+                 > Page One </TransitionLink>
+
                 <TransitionLink to="/page2" > Page Two </TransitionLink>
             </header>
 
@@ -31,4 +39,4 @@ const NewHeader = () => {
     )
 }
 
-export default NewHeader;
+export default Header;

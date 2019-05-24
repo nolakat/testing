@@ -1,7 +1,7 @@
 import React from 'react';
 import {Global, css} from '@emotion/core';
 import TestCursor from '../components/TestCursor';
-import NewHeader from '../components/NewHeader';
+import Header from '../components/Header';
 
 
 const MainLayout = ({children}) =>{
@@ -48,7 +48,7 @@ const MainLayout = ({children}) =>{
             `} />
 
                 <TestCursor location={window.location.href}/>
-                <NewHeader/ >
+                <Header/ >
                 {children}
         </>
     )
