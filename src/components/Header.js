@@ -17,20 +17,18 @@ const header = styled.div`
 `;
 
 const Header = () => {
-  
-
 
     const interestingExitAnimation =(exit, node) => {
-        console.log('triggered interestingExitAnimation()');
-        console.log({exit});
-        console.log({node});
-        TweenLite.to(".tl-wrapper-status--exiting", 1, {opacity: .5});
-
+        var main = node.getElementsByClassName("main")[0];
+        // console.log('triggered interestingExitAnimation()');
+        // console.log('exit', {exit});
+        console.log('node', {node});
+        console.log('main', main);
+        TweenLite.to(main, 4, {opacity: .5});
       }
-    
+
     return(
         <>
-
             <header>
                 <TransitionLink
                  to="/page1"
@@ -40,7 +38,7 @@ const Header = () => {
                     delay: 1.5
                   }}
                   entry={{
-              
+
                   }}
                  > Page One </TransitionLink>
 
