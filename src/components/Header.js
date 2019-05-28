@@ -17,19 +17,25 @@ const header = styled.div`
 `;
 
 const Header = () => {
-  
-
 
     const interestingExitAnimation =(exit, node) => {
+<<<<<<< HEAD
        
         
         TweenLite.fromTo(node, 3, {opacity: 1}, {opacity: 0});
 
+=======
+        var main = node.getElementsByClassName("main")[0];
+        // console.log('triggered interestingExitAnimation()');
+        // console.log('exit', {exit});
+        console.log('node', {node});
+        console.log('main', main);
+        TweenLite.to(main, 4, {opacity: .5});
+>>>>>>> 758200b9c2c29060ab87f4530e898bfcae108ce1
       }
-    
+
     return(
         <>
-
             <header>
                 <TransitionLink
                  to="/page1"
@@ -38,7 +44,7 @@ const Header = () => {
                     length: 1
                   }}
                   entry={{
-              
+
                   }}
                  > Page One </TransitionLink>
 

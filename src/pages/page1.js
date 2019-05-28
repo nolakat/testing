@@ -3,7 +3,12 @@ import TransitionLink from 'gatsby-plugin-transition-link'
 import Link from 'gatsby-plugin-transition-link'
 import { css } from '@emotion/core'
 
-export default () => {
+export default ({ children, transitionStatus, entry, exit}) => {
+        // console.log('\n', 'transitionStatus: ', transitionStatus, '\n',
+        //             'children: ', children , '\n',
+        //             'entry', entry, '\n',
+        //             'exit', exit);
+
     return(
 
             <div className="main"

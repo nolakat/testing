@@ -24,7 +24,7 @@ const TestCursor = (props) =>{
     const hoverStatus = onMouseOver(location);
     // const hoverStatus = false;
     // const [posX, posY] = [0, 0]
-   
+
 
 
 
@@ -39,7 +39,7 @@ const TestCursor = (props) =>{
             TweenMax
             .to(outerCursor, 1, {scale: 1} );
             }
-            
+
         innerTween = TweenMax
         .to(innerCursor, 0, {x: posX - (innerCursorSize / 2), y: posY - (innerCursorSize / 2)});
     });
@@ -82,7 +82,8 @@ const TestCursor = (props) =>{
             position: absolute;
             bottom: 0px;
             left: 20px;
-            `}>The mouse position is ({posX}, {posY}). <br />
+            `}>
+            The mouse position is ({posX}, {posY}). <br />
             Link Hover Status: {JSON.stringify({hoverStatus})}. <br/>
             Location: {props.location}</pre>
         </>
