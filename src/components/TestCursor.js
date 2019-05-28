@@ -6,13 +6,16 @@ import onMouseOver from '../hooks/onMouseOver';
 
 
 const TestCursor = (props) =>{
-
+    
     var outerCursor = useState(null);
+    // eslint-disable-next-line 
     var outerTween = useState(null);
     let outerCursorSize = 20;
 
     var innerCursor = useState(null);
+    // eslint-disable-next-line 
     var innerTween = useState(null);
+    // eslint-disable-next-line 
     var increaseCursor = useState(null);
     const innerCursorSize = 10;
     const location = props.location;

@@ -21,10 +21,9 @@ const Header = () => {
 
 
     const interestingExitAnimation =(exit, node) => {
-        console.log('triggered interestingExitAnimation()');
-        console.log({exit});
-        console.log({node});
-        TweenLite.to(".tl-wrapper-status--exiting", 1, {opacity: .5});
+       
+        
+        TweenLite.fromTo(node, 3, {opacity: 1}, {opacity: 0});
 
       }
     
@@ -36,8 +35,7 @@ const Header = () => {
                  to="/page1"
                  exit={{
                     trigger: ({ exit, node }) => interestingExitAnimation(exit, node),
-                    length: 1,
-                    delay: 1.5
+                    length: 1
                   }}
                   entry={{
               

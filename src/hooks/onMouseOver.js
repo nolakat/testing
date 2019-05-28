@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 const onMouseOver = (props) => {
   var linksNodeList = document.getElementsByTagName('a');
   const [isHovering, setMouse] = useState(false);
+  // eslint-disable-next-line 
   const [allLinks, setallLinks] = useState(linksNodeList);
   let linkArray = Array.prototype.slice.call(linksNodeList);
 
@@ -18,22 +19,23 @@ const onMouseOver = (props) => {
       linkArray.map((value, index) => {
           value.removeEventListener('mouseenter', _Enterhandler);
           value.removeEventListener('mouseleave', _Exithandler);
+          return;
       });
     }
   }, [props]);
 
   const _Enterhandler = () => {
-    setMouse(true);
+    return setMouse(true);
   };
 
   const _Exithandler = () => {
-    setMouse(false);
+    return setMouse(false);
   };
 
   const _getAllLinks = () =>{
 
     linkArray = Array.prototype.slice.call(linksNodeList);
-    _updateHoverState();
+    return _updateHoverState();
 
   }
 
