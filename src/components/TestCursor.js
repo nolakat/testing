@@ -58,6 +58,7 @@ const TestCursor = (props) =>{
                     position: absolute;
                     border-radius: 100%;
                     pointer-events: none;
+                    z-index: 999;
 
                 `}/>
 
@@ -73,6 +74,7 @@ const TestCursor = (props) =>{
                     display: block;
                     border-radius: 100%;
                     pointer-events: none;
+                    z-index: 999;
                 `} />
 
             <pre css={css`
