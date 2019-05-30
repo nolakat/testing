@@ -1,11 +1,10 @@
 import React from 'react';
 import styled from "@emotion/styled";
-import TransitionLink from 'gatsby-plugin-transition-link'
+import TransitionLink from 'gatsby-plugin-transition-link';
 import { TweenLite } from 'gsap';
 
 
 const header = styled.div`
-
     padding: 1rem 0;
     display: flex;
     justify-content: center;
@@ -16,28 +15,39 @@ const header = styled.div`
     }
 `;
 
-const Header = () => {
+const Header = (props) => {
 
     const interestingExitAnimation =(exit, node) => {
-       
-        TweenLite.fromTo(node, 2, {opacity: 1}, {opacity: 0});
+        TweenLite.fromTo(node, .5, {opacity: 1}, {opacity: 0});
       }
 
+      const test = (node) =>{
+
+    }
+
     return(
+
         <>
             <header>
                 <TransitionLink
                  to="/page1"
                  exit={{
                     trigger: ({ exit, node }) => interestingExitAnimation(exit, node),
-                    length: 2
+                    length: 1,
+                    delay: 1,
+                    zIndex: 2
                   }}
                   entry={{
-                    delay: 2
-                  }}
+                    trigger: ({  node }) => test(node),
+                    delay: 1,
+                }}
                  > Page One </TransitionLink>
 
-                <TransitionLink to="/page2" > Page Two </TransitionLink>
+                <TransitionLink to="/page2"
+                entry={{
+                    trigger: ({  node }) => test(node),
+                    delay: 1,
+                }}> Page Two </TransitionLink>
             </header>
 
         </>

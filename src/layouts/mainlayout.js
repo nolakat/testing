@@ -3,8 +3,7 @@ import {Global, css} from '@emotion/core';
 import TestCursor from '../components/TestCursor';
 import Header from '../components/Header';
 
-
-const MainLayout = ({children}) =>{
+const MainLayout = ({ children }) =>{
 
 
     return(
@@ -38,7 +37,7 @@ const MainLayout = ({children}) =>{
                     display: flex;
                     justify-content: center;
                     border: 1px solid red;
-                
+
                     a{
                         margin: 0px 20px;
                         border: 2px solid pink;
@@ -47,8 +46,8 @@ const MainLayout = ({children}) =>{
                 }
             `} />
 
-                <TestCursor location={window.location.href}/>
-                <Header/ >
+                <TestCursor location={window.location.href} />
+                <Header / >
                 {children}
         </>
     )

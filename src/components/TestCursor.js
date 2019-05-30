@@ -4,29 +4,27 @@ import { TweenMax } from "gsap/TweenMax";
 import useMouseMove from '../hooks/useMouseMove';
 import onMouseOver from '../hooks/onMouseOver';
 
-
 const TestCursor = (props) =>{
-    
+
     var outerCursor = useState(null);
-    // eslint-disable-next-line 
+    // eslint-disable-next-line
     var outerTween = useState(null);
     let outerCursorSize = 20;
 
     var innerCursor = useState(null);
-    // eslint-disable-next-line 
+    // eslint-disable-next-line
     var innerTween = useState(null);
-    // eslint-disable-next-line 
+    // eslint-disable-next-line
     var increaseCursor = useState(null);
     const innerCursorSize = 10;
     const location = props.location;
+    const node = props.entryNode;
 
     const [posX, posY] = useMouseMove();
-    const hoverStatus = onMouseOver(location);
+    const hoverStatus = onMouseOver(location, node);
+    // console.log('locaLinks TestCursor', props);
     // const hoverStatus = false;
     // const [posX, posY] = [0, 0]
-
-
-
 
     useEffect(() => {
         outerTween = TweenMax
@@ -42,6 +40,7 @@ const TestCursor = (props) =>{
 
         innerTween = TweenMax
         .to(innerCursor, 0, {x: posX - (innerCursorSize / 2), y: posY - (innerCursorSize / 2)});
+
     });
 
 
@@ -87,7 +86,9 @@ const TestCursor = (props) =>{
             `}>
             The mouse position is ({posX}, {posY}). <br />
             Link Hover Status: {JSON.stringify({hoverStatus})}. <br/>
-            Location: {props.location}</pre>
+            Location: {props.location} <br/>
+            Transition Status: {props.transferStatus}
+            </pre>
         </>
       );
 }

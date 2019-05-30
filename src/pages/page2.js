@@ -3,6 +3,9 @@ import Link from 'gatsby-plugin-transition-link'
 import { css } from '@emotion/core'
 
 export default () => {
+
+    // console.log(transitionStatus )
+
     return(
 
             <div className="main"
@@ -11,6 +14,7 @@ export default () => {
             border: 2px solid green;
             background: #fff;
             `}>
+
                 <h2>Page Two</h2>
                 <Link to="/page1/" >Go To Page One</Link><br />
             </div>

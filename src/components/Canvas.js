@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../components/Header';
 import Cursor from '../components/Cursor';
 import MyComponent from '../components/MovingBlock';
+import { TransitionState } from "gatsby-plugin-transition-link";
 
 
 
@@ -10,10 +11,10 @@ class Canvas extends React.Component{
     constructor(props){
         super(props);
 
-        this.state ={ 
+        this.state ={
             isHover: false,
             y: '',
-            x: '' 
+            x: ''
         };
     }
 
@@ -36,7 +37,7 @@ class Canvas extends React.Component{
         });
 
         return(
-            
+
             <main onMouseMove={this._onMouseMove}>
 
                 <Header toggleFunc={_toggleHoverState}/>
