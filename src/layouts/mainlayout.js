@@ -48,7 +48,11 @@ const MainLayout = ({ children }) =>{
 
                 <TestCursor location={window.location.href} />
                 <Header / >
+                <main id="main-container">
+
                 {children}
+
+                </main>
         </>
     )
 

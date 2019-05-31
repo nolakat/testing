@@ -7,9 +7,10 @@ const onMouseOver = (location) => {
   const [isHovering, setMouse] = useState(false);
 
   useEffect(() => {
-
-     console.log('useEffect');
+    // runs once when the window location changes
     _getAllLinks();
+
+    _runObserver();
 
     return () => {
       //@remind -- I had this set to false for some reason
@@ -17,8 +18,6 @@ const onMouseOver = (location) => {
       // right now it's to keep the hover-state on animated
       // link reloads
        //setMouse(false);
-
-      // document.addEventListener('DOMNodeInserted', _flagInsertedElement, false);
 
       linkArray.map((value, index) => {
           value.removeEventListener('mouseenter', _Enterhandler);
@@ -28,14 +27,29 @@ const onMouseOver = (location) => {
     }
   }, [location]);
 
-  const _flagInsertedElement = (event) => {
-    console.log('flag raised');
-    var el = event.target;
+  const _runObserver = () =>{
+    // set observer on child of Transition Link's Layout that takes classNames
+    // during Transition. If ClassName contains 'mount' search for links.
+    var targetNode = document.getElementsByClassName('tl-edges')[0];
 
-    if( el.classList !== undefined && el.children.length > 0 ){
-      _getAllLinks();
-    }
- }
+    var _callback = (mutationList) => {
+      mutationList.forEach(function(mutation) {
+
+        if(mutation.addedNodes.length > 0 && mutation.addedNodes[0].classList.contains('tl-wrapper--mount')){
+          return _getAllLinks();
+        }
+
+      });
+    };
+
+    var config = {
+      attributeFilter: [ "class" ],
+      childList: true,
+      subtree: false };
+
+    var observer = new MutationObserver(_callback);
+    observer.observe(targetNode, config);
+  }
 
   const _Enterhandler = () => {
     return setMouse(true);
@@ -46,13 +60,9 @@ const onMouseOver = (location) => {
   };
 
   const _getAllLinks = (links) =>{
-    linkArray = [];
 
-    let test = document.getElementsByClassName('tl-wrapper-status--entered')[0];
-    console.log(test);
-    // let newArray = test.getElementsByTagName('a');
-    // console.log(newArray);
-
+    //!@remind -- try to find a more efficent way to do this
+    //works for now
     linksNodeList = document.getElementsByTagName('a');
     linkArray = Array.prototype.slice.call(linksNodeList);
 
@@ -62,10 +72,8 @@ const onMouseOver = (location) => {
   const _updateHoverState = (linkArray) => {
 
   linkArray.map((value, index) => {
-
     value.addEventListener('mouseenter', _Enterhandler);
     value.addEventListener('mouseleave', _Exithandler);
-
   });
 
   return;

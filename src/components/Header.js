@@ -21,9 +21,6 @@ const Header = (props) => {
         TweenLite.fromTo(node, .5, {opacity: 1}, {opacity: 0});
       }
 
-      const test = (node) =>{
-
-    }
 
     return(
 
@@ -38,14 +35,12 @@ const Header = (props) => {
                     zIndex: 2
                   }}
                   entry={{
-                    trigger: ({  node }) => test(node),
                     delay: 1,
                 }}
                  > Page One </TransitionLink>
 
                 <TransitionLink to="/page2"
                 entry={{
-                    trigger: ({  node }) => test(node),
                     delay: 1,
                 }}> Page Two </TransitionLink>
             </header>
