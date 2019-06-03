@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { css } from '@emotion/core';
-import { TweenMax } from "gsap/TweenMax";
+import { TweenMax, Back, Power0, Circ, Elastic } from "gsap/TweenMax";
 import useMouseMove from '../hooks/useMouseMove';
 import onMouseOver from '../hooks/onMouseOver';
 
@@ -10,6 +10,7 @@ const TestCursor = (props) =>{
     // eslint-disable-next-line
     var outerTween = useState(null);
     let outerCursorSize = 20;
+    let outerCursorBorderWidth = 2;
 
     var innerCursor = useState(null);
     // eslint-disable-next-line
@@ -17,22 +18,29 @@ const TestCursor = (props) =>{
     // eslint-disable-next-line
     var increaseCursor = useState(null);
     const innerCursorSize = 10;
+
+
     const location = props.location;
     const node = props.entryNode;
 
     const [posX, posY] = useMouseMove();
-    const hoverStatus = onMouseOver(location, node);
+    const hoverStatus = onMouseOver(location);
     // console.log('locaLinks TestCursor', props);
     // const hoverStatus = false;
     // const [posX, posY] = [0, 0]
 
     useEffect(() => {
         outerTween = TweenMax
-        .to(outerCursor, .25, {x: posX - (outerCursorSize / 2), y: posY - (outerCursorSize / 2)});
+        .to(outerCursor, .75, {x: posX - (outerCursorSize / 2) - outerCursorBorderWidth,
+                               y: posY - (outerCursorSize / 2) - outerCursorBorderWidth,
+                               ease: Back.easeOut.config(1.5) } );
 
             if(hoverStatus){
             TweenMax
-            .to(outerCursor, 1, {scale: 2} );
+            .to(outerCursor, .5,
+            {scale: 2,
+
+            } );
             } else {
             TweenMax
             .to(outerCursor, 1, {scale: 1} );
@@ -67,13 +75,15 @@ const TestCursor = (props) =>{
                 css={css`
                     width: ${outerCursorSize}px;
                     height: ${outerCursorSize}px;
-                    background: ${hoverStatus ? 'blue' : 'red' };
+                    // background: ${hoverStatus ? 'blue' : 'red' };
+                    background: #fff;
                     opacity: .5;
+                    border: ${outerCursorBorderWidth}px solid green;
                     position: absolute;
                     display: block;
                     border-radius: 100%;
                     pointer-events: none;
-                    z-index: 999;
+                    z-index: 998;
                 `} />
 
             <pre css={css`

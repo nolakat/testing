@@ -4,8 +4,6 @@ import { css } from '@emotion/core'
 
 export default () => {
 
-    // console.log(transitionStatus )
-
     return(
 
             <div className="main"

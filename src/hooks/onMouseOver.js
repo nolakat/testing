@@ -62,10 +62,12 @@ const onMouseOver = (location) => {
   const _Clickhandler = (e) => {
 
     let targetParent = e.target.parentElement.localName;
-
-    if(targetParent === 'header'){
-      return;
+    console.log(targetParent);
+    if(targetParent === 'nav'){
+      console.log('set true');
+      return setMouse(true);
     } else {
+      console.log('set false');
       return setMouse(false);
     }
   }

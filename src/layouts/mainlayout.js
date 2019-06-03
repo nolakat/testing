@@ -13,9 +13,10 @@ const MainLayout = ({ children }) =>{
                 body{
                     margin: 0px;
                     padding: 0px;
-                    height: 100vh;
-                    width: 100vw;
-                    // cursor: none;
+                    min-height: 100vh;
+                    width: 100%;
+                    overflow-x: hidden;
+                    cursor: none;
                 }
 
                 main{
@@ -35,13 +36,12 @@ const MainLayout = ({ children }) =>{
 
                     padding: 1rem 0;
                     display: flex;
-                    justify-content: center;
+                    justify-content: space-between;
                     border: 1px solid red;
 
                     a{
                         margin: 0px 20px;
                         border: 2px solid pink;
-                        padding: 15px;
                     }
                 }
             `} />
