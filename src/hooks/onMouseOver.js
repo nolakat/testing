@@ -17,7 +17,7 @@ const onMouseOver = (location) => {
       // will probably remember why later.
       // right now it's to keep the hover-state on animated
       // link reloads
-       //setMouse(false);
+      //  setMouse(false);
 
       linkArray.map((value, index) => {
           value.removeEventListener('mouseenter', _Enterhandler);
@@ -59,6 +59,17 @@ const onMouseOver = (location) => {
     return setMouse(false);
   };
 
+  const _Clickhandler = (e) => {
+
+    let targetParent = e.target.parentElement.localName;
+
+    if(targetParent === 'header'){
+      return;
+    } else {
+      return setMouse(false);
+    }
+  }
+
   const _getAllLinks = (links) =>{
 
     //!@remind -- try to find a more efficent way to do this
@@ -74,6 +85,7 @@ const onMouseOver = (location) => {
   linkArray.map((value, index) => {
     value.addEventListener('mouseenter', _Enterhandler);
     value.addEventListener('mouseleave', _Exithandler);
+    value.addEventListener('click', _Clickhandler);
   });
 
   return;
