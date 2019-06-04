@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { css } from '@emotion/core';
-import { TweenMax, Back, Power0, Circ, Elastic } from "gsap/TweenMax";
+import { TweenMax, Back, Bounce, Circ, Elastic } from "gsap/TweenMax";
 import useMouseMove from '../hooks/useMouseMove';
 import onMouseOver from '../hooks/onMouseOver';
 
@@ -9,7 +9,7 @@ const TestCursor = (props) =>{
     var outerCursor = useState(null);
     // eslint-disable-next-line
     var outerTween = useState(null);
-    let outerCursorSize = 20;
+    let outerCursorSize = 10;
     let outerCursorBorderWidth = 2;
 
     var innerCursor = useState(null);
@@ -37,13 +37,16 @@ const TestCursor = (props) =>{
 
             if(hoverStatus){
             TweenMax
-            .to(outerCursor, .5,
-            {scale: 2,
-
+            .to(outerCursor, .75,
+            { width: 40,
+                height: 40,
+                xPercent:-40,
+                yPercent: -40,
+                ease: Bounce.easeOut
             } );
             } else {
             TweenMax
-            .to(outerCursor, 1, {scale: 1} );
+            .to(outerCursor, .5, {width:  outerCursorSize, height: outerCursorSize, xPercent: 0, yPercent: 0} );
             }
 
         innerTween = TweenMax
@@ -97,7 +100,6 @@ const TestCursor = (props) =>{
             The mouse position is ({posX}, {posY}). <br />
             Link Hover Status: {JSON.stringify({hoverStatus})}. <br/>
             Location: {props.location} <br/>
-            Transition Status: {props.transferStatus}
             </pre>
         </>
       );

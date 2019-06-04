@@ -2,6 +2,8 @@ import React from 'react';
 import {Global, css} from '@emotion/core';
 import TestCursor from '../components/TestCursor';
 import Header from '../components/Header';
+import { Helmet } from 'react-helmet'
+
 
 const MainLayout = ({ children }) =>{
 
@@ -29,7 +31,7 @@ const MainLayout = ({ children }) =>{
                 }
 
                 a:hover, a:active, a:focus{
-                    // cursor: none;
+                    cursor: none;
                 }
 
                 header{
@@ -45,7 +47,10 @@ const MainLayout = ({ children }) =>{
                     }
                 }
             `} />
+                <Helmet>
+                    <title> Hello There </title>
 
+                </Helmet>
                 <TestCursor location={window.location.href} />
                 <Header / >
                 <main id="main-container">

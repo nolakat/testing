@@ -41,6 +41,11 @@ const Header = (props) => {
                     entry={{
                         delay: 1,
                     }}> Page Two </TransitionLink>
+
+                    <TransitionLink to="/page3"
+                    entry={{
+                        delay: 1,
+                    }}> Page Three </TransitionLink>
                 </Nav>
             </header>
 
