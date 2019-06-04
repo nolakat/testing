@@ -86,7 +86,8 @@ const TestCursor = (props) =>{
                     display: block;
                     border-radius: 100%;
                     pointer-events: none;
-                    z-index: 998;
+                    z-index: 999;
+           
                 `} />
 
             <pre css={css`
@@ -96,6 +97,7 @@ const TestCursor = (props) =>{
             position: absolute;
             bottom: 0px;
             left: 20px;
+            z-index: 998;
             `}>
             The mouse position is ({posX}, {posY}). <br />
             Link Hover Status: {JSON.stringify({hoverStatus})}. <br/>
