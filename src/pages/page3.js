@@ -65,7 +65,7 @@ export default () => {
 
     return(
   <div className="test" css={css` width: 100vw; height: 100vh; background: #fff;`}>
-    <Illustration zoom={8} >
+    <Illustration zoom={8}  >
         <Ellipse diameter={25} rotate={{ x: -TAU / 3 }} translate={{ y: 15, z: -100 }} stroke={4} color="#ded89a" fill />
         <Guy />
       </Illustration>

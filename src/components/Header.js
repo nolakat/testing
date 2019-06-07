@@ -44,8 +44,13 @@ const Header = (props) => {
 
                     <TransitionLink to="/page3"
                     entry={{
-                        delay: 1,
+                        delay: 0,
                     }}> Page Three </TransitionLink>
+
+<TransitionLink to="/page4"
+                    entry={{
+                        delay: 0,
+                    }}> Page Four </TransitionLink>
                 </Nav>
             </header>
 
