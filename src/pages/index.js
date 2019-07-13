@@ -9,7 +9,7 @@ export default () => {
         <>
 
         <h1>Hello.</h1>
-        <canvas class="zdog-canvas" width="240" height="240"></canvas>
+        <canvas className="zdog-canvas" width="240" height="240"></canvas>
         </>
     )
 
