@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { css } from '@emotion/core';
-import { TweenMax, Back, Bounce, Circ, Elastic } from "gsap/TweenMax";
+import { TweenMax, Back, Bounce } from "gsap/TweenMax";
 import useMouseMove from '../hooks/useMouseMove';
 import onMouseOver from '../hooks/onMouseOver';
 
@@ -21,7 +21,6 @@ const TestCursor = (props) =>{
 
 
     const location = props.location;
-    const node = props.entryNode;
 
     const [posX, posY] = useMouseMove();
     const hoverStatus = onMouseOver(location);
@@ -87,7 +86,7 @@ const TestCursor = (props) =>{
                     border-radius: 100%;
                     pointer-events: none;
                     z-index: 999;
-           
+
                 `} />
 
             <pre css={css`

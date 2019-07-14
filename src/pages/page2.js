@@ -4,6 +4,8 @@ import { css } from '@emotion/core'
 
 export default () => {
 
+    // console.log('hello');
+
     return(
 
             <div className="main"

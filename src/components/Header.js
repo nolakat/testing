@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from "@emotion/styled";
 import TransitionLink from 'gatsby-plugin-transition-link';
-import { Link } from 'gatsby';
 import { TweenLite } from 'gsap';
 import Logo from './Logo';
 
